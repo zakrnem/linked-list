@@ -93,6 +93,20 @@ function LinkedList(value, nextNode) {
         tmp = tmp.nextNode
       }
       return string + ' null'
+    },
+
+    pop: function() {
+      let listLength = this.size()
+      let tmp = this.head
+      let counter = 0
+      while (counter < listLength) {
+        counter++
+        if (counter === listLength-1) {
+          tmp.nextNode = null
+          return this.toString()
+        }
+        tmp = tmp.nextNode
+      }
     }
   }
 }
@@ -104,7 +118,8 @@ function test() {
   linkedList.append('Volvo')
   linkedList.append('Skoda')
   linkedList.append('Peugeot')
-  return linkedList.toString()  
+  return linkedList.pop()  
+  //linkedList.toString()
   //linkedList.find('Skoda')
   //linkedList.contains('Ford')
   //linkedList.contains('Peugeot')
