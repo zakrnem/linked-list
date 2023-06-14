@@ -63,18 +63,42 @@ function LinkedList(value, nextNode) {
           return tmp
         }
       }
+    },
+
+    contains: function(value) {
+      let tmp = this.head
+      while (tmp != null) {
+        if (tmp.value === value) return true
+        tmp = tmp.nextNode
+      }
+      return false
+    },
+
+    find: function(value) {
+      let tmp = this.head
+      let counter = 0
+      while (tmp != null) {
+        counter++
+        if (tmp.value === value) return counter
+        tmp = tmp.nextNode
+      }
+      return false
     }
   }
 }
 
 function test() {
   const linkedList = LinkedList()
-  linkedList.append(1)
-  linkedList.append(2)
-  linkedList.append(3)
-  linkedList.append(4)
-  linkedList.append(5)
-  return linkedList.at(2)
+  linkedList.append('BMW')
+  linkedList.append('Mercedes')
+  linkedList.append('Volvo')
+  linkedList.append('Skoda')
+  linkedList.append('Peugeot')
+  return linkedList.find('Skoda')  
+  //linkedList.find('Skoda')
+  //linkedList.contains('Ford')
+  //linkedList.contains('Peugeot')
+  //linkedList.at(2)
   //linkedList.size()
 }
 
