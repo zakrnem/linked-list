@@ -107,6 +107,19 @@ function LinkedList(value, nextNode) {
         }
         tmp = tmp.nextNode
       }
+    },
+
+    replaceAt: function(value, index) {
+      let tmp = this.head
+      let counter = 0
+      while (counter < index+1) {
+        counter++
+        if (counter === index) {
+          tmp.value = value
+        }
+        tmp = tmp.nextNode
+      }
+      return this.toString()
     }
   }
 }
@@ -118,7 +131,8 @@ function test() {
   linkedList.append('Volvo')
   linkedList.append('Skoda')
   linkedList.append('Peugeot')
-  return linkedList.pop()  
+  return linkedList.insertAt('Ford', 2)
+  //linkedList.pop()
   //linkedList.toString()
   //linkedList.find('Skoda')
   //linkedList.contains('Ford')
